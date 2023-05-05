@@ -1,0 +1,113 @@
+
+img {
+    width: 250px;
+    height: auto;
+}
+.image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 70px;
+    padding-bottom: 30px;
+}
+.us-container{
+    text-align: center;
+    font-family: system-ui;
+    color: whitesmoke;
+    overflow:scroll; 
+    max-height: 100vh;
+}
+.us-header{
+  
+    font-size: 40px;
+}
+.item{
+    padding:5px 30px;
+    height: max-content;
+}
+.item-card{
+   display: flex;
+   justify-content: space-between;
+    background-color: rgba(160, 203, 241, 0.818);
+    color:#02355c;
+}
+.item-card:hover,.item-card:focus{
+    background-color: rgb(160, 203, 241);
+}
+.item-card-header{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    align-items: flex-start;
+    font-family: monospace;
+    font-size: larger;
+    max-width: 40%;
+}
+.item-card-header>span{
+    text-align: left;
+    white-space: break-spaces;
+}
+.title{
+    font-weight: bold;
+    color: #7f0739;
+}
+.item-image{
+    padding-right: 15px;
+}
+img{
+    display: block;
+    width: 100px;
+    height: auto;
+    border-radius: 50%; 
+}
+.outofstock{
+    background-color: #C62368;
+}
+
+/**********
+Modal popup
+***********/
+.modalpopup{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.329);
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+.updatecard{
+    max-height: max-content;
+    padding:20px;
+    background-color: #f9d3e3;
+    border-radius: 6px;
+    border : 2px solid #001220;
+}
+.form-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.error-popup{
+    background-color: rgba(0, 0, 0, 0.419);
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.error-msg{
+    background-color: white;
+    width:max-content;
+    position: absolute;
+    padding:30px 50px;
+    color: rgb(78, 0, 44);
+    border: 2px solid rgb(78, 0, 44);
+    border-radius: 6px;
+}

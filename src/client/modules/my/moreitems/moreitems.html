@@ -1,0 +1,80 @@
+<template>
+    <div class="more-container">
+        <div class="more-header" style="color:white;">Add/Edit Items</div>
+        <i>Hello {loggedinuser},<br /> Click on any item to edit the item. Click on Add button to add a new Item</i>
+        <br />
+        <div>
+            <div class="item">
+                <div class="item-card" onclick={addItem}>
+                    <div class="item-card-header">
+                        <span class="title">Add a new Item</span>
+                        <span>Click here to add a new Item to the list</span>
+                    </div>
+                    <div class="add-image">
+                        <img src="./resources/add.png"></img>
+                    </div>
+                </div>
+            </div>
+            <template for:each={dataset} for:item="item">
+                <div class="item" key={item._id}>
+                    <div class="item-card" id={item._id} data-item={item.item} onclick={cardclicked}>
+                        <div class="item-card-header">
+                            <span class="title">{item.item}</span>
+                            <span><b>Item Id :</b> {item._id}</span>
+                            <span><b>Description :</b> {item.desc}</span>
+                            <span class="img-url-format"><b>Image URL:</b> {item.imgurl} </span>
+                        </div>
+                        <div class="item-image">
+                            <img src={item.imgurl}></img>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+    <template if:true={updateanitem}>
+        <div class="modalpopup" onclick={closepopup}>
+
+            <div class="updatecard" onclick={stopBubbling}>
+                <div class="title">
+                    Update : {itemToUpdate.item}
+                    <span class="closebutton" onclick={closepopup}>
+                        <img src="./resources/close.png"></img>
+                    </span>
+                </div>
+                <div class="updateForm">
+                    <div class="form-row">Id: {itemToUpdate._id} </div>
+                    <div class="form-row">Item Name: <input type="text" onchange={itemNameChanged} value={itemName}
+                            required></input></div>
+                    <div class="form-row">Description: <input type="text" onchange={descChanged} value={desc}
+                            required></input></div>
+                    <div class="form-row">Image: <input type="text" onchange={imageUrlChanged} value={imageUrl}
+                            required></input></div>
+                </div>
+                <template if:true={alert}>
+                    <div style="color:red;">Please dont leave any fields blank</div>
+                </template>
+                <br />
+                <template if:false={addanItem}>
+                    <div class="updateButtons">
+                        <button onclick={saveItem}>Save</button>
+                        <button onclick={deleteItem}>Delete</button>
+                    </div>
+                </template>
+                <template if:true={addanItem}>
+                    <div class="updateButtons">
+                        <button onclick={saveAddItem}>Save</button>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </template>
+    <template if:true={errMsg}>
+        <div class="error-popup" onclick={removeError}>
+        <div class="error-msg">
+            <b>{errMsg}</b> <br/>
+            <div style="font-size: x-small;text-align:center;padding-top:30px;">Touch anywhere to close this message</div>
+        </div>
+    </div>
+    </template>
+</template>

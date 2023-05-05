@@ -1,0 +1,61 @@
+<template>
+    <!--
+    <div class="image">
+        <img src="../../../resources/Dog.png"></img>
+    </div>-->
+    <div class="us-container">
+        <div class="us-header" style="color:white;">UPDATE STOCK</div>
+        <i>Hello {loggedinuser},</i> <br />
+        <div>
+            <template for:each={dataset} for:item="item">
+                <div class="item" key={item._id}>
+                    <div class="item-card" id={item._id} data-item={item.item} onclick={cardclicked}>
+                        <div class="item-card-header">
+                            <span class="title">{item.item}</span>
+                            <span>Item Number : {item._id}</span>
+                            <span>{item.desc}</span>
+                            <span>Packets left: {item.numberOfPack}</span>
+                            <span>Left for: {item.buyafterday} days</span>
+                        </div>
+                        <div class="item-image">
+                            <img src={item.imgurl}></img>
+                        </div>
+                    </div>
+                    <template if:true={item.outOfStock}>
+                        <div class="outofstock">OUT OF STOCK</div>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </div>
+    <template if:true={updateanitem}>
+        <div class="modalpopup" onclick={closepopup}>
+
+            <div class="updatecard" onclick={stopBubbling}>
+                <div class="title">
+                    Update : {itemToUpdate.item}
+                </div>
+                <div class="updateForm">
+                    <div class="form-row">Number of packets: <input type="number" onchange={noofpacketsChanged}
+                            value={noofpts} required></input></div>
+                    <div class="form-row">Expected for days: <input type="number" onchange={expdaysChanged}
+                            value={expdays} required></input></div>
+                </div>
+                <template if:true={alert}>
+                    <div style="color:red;"> Please enter correct values</div>
+                </template>
+                <div class="updateForm">
+                    <button onclick={saveStock}>Save</button>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template if:true={errMsg}>
+        <div class="error-popup" onclick={removeError}>
+        <div class="error-msg">
+            <b>{errMsg}</b> <br/>
+            <div style="font-size: x-small;text-align:center;padding-top:30px;">Touch anywhere to close this message</div>
+        </div>
+    </div>
+    </template>
+</template>

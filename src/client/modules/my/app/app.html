@@ -1,0 +1,33 @@
+<template>
+  <!--Login Section-->
+  <template if:false={loggedIn}>
+    <div class="login-placer">
+      <my-login onloginstatus={loginStatus}></my-login>
+    </div>
+  </template>
+
+  <template if:true={loggedIn}>
+    <!--NavBar-->
+    <div class="navbar">
+      <my-Navbar onnavaction={navActionAdded}></my-Navbar>
+    </div>
+    <!--HomePage-->
+    <template if:true={homePage}>
+      <div class="home-container">
+        <my-Home itemset={itemset}></my-Home>
+      </div>
+    </template>
+  </template>
+  <!--Update Stock-->
+  <template if:true={updateStock}>
+    <div class="updateStock">
+       <my-updatestock itemset={itemset} onupdatestock={refreshdata}></my-updatestock>
+    </div>
+  </template>
+  <!--Add more Items-->
+  <template if:true={addEditItems}>
+    <div class="addedititems">
+       <my-moreitems itemset={itemset} onupdateitem={refreshdata}></my-moreitems>
+    </div>
+  </template>
+</template>

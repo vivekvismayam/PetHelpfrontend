@@ -1,0 +1,31 @@
+<template>
+    <!--
+    <div class="image">
+        <img src="../../../resources/Dog.png"></img>
+    </div>-->
+    <div class="home-container">
+        <div class="home-header" style="color:white;">Home</div>
+        <i>Hello {loggedinuser},</i> <br />
+        <div >
+            <template for:each={itemset} for:item="item">
+                <div class="item" key={item._id}>
+                    <div class="item-card">
+                        <div class="item-card-header">
+                            <span class="title">{item.item}</span>
+                            <span>Item Number : {item._id}</span>
+                            <span>{item.desc}</span>
+                            <span>Packets left: {item.numberOfPack}</span>
+                            <span>Left for: {item.buyafterday} days</span>
+                        </div>
+                        <div class="item-image">
+                            <img src={item.imgurl}></img>
+                        </div>
+                    </div>
+                    <template if:true={item.outOfStock}>
+                        <div class="outofstock">OUT OF STOCK</div>
+                    </template>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

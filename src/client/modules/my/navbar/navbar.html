@@ -1,0 +1,32 @@
+<template>
+    <div class={navbarCSS} onclick={toggleNavbar}>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <template if:true={navbarOpen}>
+
+        <div class="navWindow">
+            <div class="image">
+                <img src="./resources/Dog.png"></img>
+                <span class="arrow" onclick={toggleNavbar}>
+                    <img src="./resources/cancel.png"></img>
+                </span>
+            </div>
+            <div class="navHeader"><u> MENU</u> </div>
+            <div class="navContents">
+                <template for:each={navContents} for:item="item">
+                    <div key={item.Id} id={item.Id} data-action={item.action} >
+                        <div if:true={item.show} onclick={navItemClicked}>
+                            <div class="navItem">{item.title}</div><br />
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div class="developerName">
+                <div>developed by Vivek M<br /> Express JS & LWC OSS Learnings</div>
+            </div>
+        </div>
+
+    </template>
+</template>

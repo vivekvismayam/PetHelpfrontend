@@ -1,0 +1,29 @@
+<template>
+    <div class="image">
+       <!-- <img src="../../../resources/Dog.png"></img>-->
+        <img src="./resources/Dog.png"></img>
+    </div>
+    <div class="login-container">
+        <div class="login-header">LOGIN</div>
+        <div style="color:whitesmoke">
+            <div class="input">
+                Username <input type="text" onchange={changedUsername} value={username}></input>
+            </div>
+            <div class="input">
+                Password &nbsp;<input type="password" onchange={changedPassword} value={password}></input>
+            </div>
+            <!--<a  style="float:right;font-size:small;color:rgb(115, 7, 74);" href="">Forgot password?</a>-->
+            <div class="submit">
+               <button onclick={submitLogin}> Submit</button>
+            </div>
+        </div>
+    </div>
+    <template if:true={errMsg}>
+        <div class="error-popup" onclick={removeError}>
+        <div class="error-msg">
+            <b>{errMsg}</b> <br/>
+            <div style="font-size: x-small;text-align:center;padding-top:30px;">Touch anywhere to close this message</div>
+        </div>
+    </div>
+    </template>
+</template>
