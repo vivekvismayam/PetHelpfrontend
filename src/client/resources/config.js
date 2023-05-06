@@ -1,1 +1,1 @@
-export const baseApiUrl = 'http://13.233.129.115:8080/api/v1';
+export const baseApiUrl = 'https://pethelpserver.onrender.com/api/v1';
